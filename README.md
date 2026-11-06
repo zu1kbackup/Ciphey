@@ -1,247 +1,386 @@
-🚨 An experimental rewrite in Rust can be found here https://github.com/bee-san/ares 🚨
+<p align="center">
+  <a href="https://cdn.jsdelivr.net/gh/bee-san/Ciphey@d41d19946234477346fede14dadf8c351cc469e6/media/tui-video/out/ciphey-tui-promo.mp4"><img src="https://cdn.jsdelivr.net/gh/bee-san/Ciphey@d41d19946234477346fede14dadf8c351cc469e6/media/tui-video/out/preview.gif" alt="Ciphey in a terminal: four layers of Base64 go in, Ciphey asks whether 'Ciphey peels back every layer of encoding' is the plaintext, then prints it with the path Base64 → Base64 → Base64 → Base64. Click to watch the one-minute tour."></a>
+</p>
 
-🚨 I intend to merge this rewrite into this repo by June of 2026 🚨
+<h1 align="center">Ciphey</h1>
 
 <p align="center">
-Translations <br>
-<a href=https://github.com/Ciphey/Ciphey/tree/master/translations/de/README.md>🇩🇪 DE   </a>
-<a href=https://github.com/Ciphey/Ciphey/tree/master/README.md>🇬🇧 EN   </a>
-<a href=https://github.com/Ciphey/Ciphey/tree/master/translations/fr/README.md>🇫🇷 FR   </a>
-<a href=https://github.com/Ciphey/Ciphey/tree/master/translations/hu/README.md>🇭🇺 HU   </a>
-<a href=https://github.com/Ciphey/Ciphey/tree/master/translations/hi/README.md>🇮🇳 HI   </a>
-<a href=https://github.com/Ciphey/Ciphey/tree/master/translations/id/README.md>🇮🇩 ID   </a>
-<a href=https://github.com/Ciphey/Ciphey/tree/master/translations/it/README.md>🇮🇹 IT   </a>
-<a href=https://github.com/Ciphey/Ciphey/tree/master/translations/nl/README.md>🇳🇱 NL   </a>
-<a href=https://github.com/Ciphey/Ciphey/tree/master/translations/pt-br/README.md>🇧🇷 PT-BR   </a>
-<a href=https://github.com/Ciphey/Ciphey/tree/master/translations/ru/README.md>🇷🇺 RU   </a>
-<a href=https://github.com/Ciphey/Ciphey/tree/master/translations/th/README.md>🇹🇭 TH   </a>
-<a href=https://github.com/Ciphey/Ciphey/tree/master/translations/zh/README.md>🇨🇳 ZH   </a>
- <br><br>
-➡️
-<a href="https://github.com/Ciphey/Ciphey/wiki">Documentation</a> |
-<a href="https://discord.gg/zYTM3rZM4T">Discord</a> |
- <a href="https://github.com/Ciphey/Ciphey/wiki/Installation">Installation Guide</a>
- ⬅️
-
-<br>
-  <img src="https://github.com/Ciphey/Ciphey/raw/master/Pictures_for_README/binoculars.png" alt="Ciphey">
+  <b>Paste in text that's been encoded or encrypted. Ciphey works out how and hands you the plaintext.</b><br>
+  No key, no cipher name, no hints. Base64, hex, Caesar/ROT13, Vigenère, Morse code and 19 more, several layers deep.
 </p>
 
 <p align="center">
-<img src="https://pepy.tech/badge/ciphey">
- <img src="https://pepy.tech/badge/ciphey/month">
-  <a href="https://discord.gg/zYTM3rZM4T"><img alt="Discord" src="https://img.shields.io/discord/754001738184392704"></a>
-<a href="https://pypi.org/project/ciphey/"><img src="https://img.shields.io/pypi/v/ciphey.svg"></a>
-  <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="Ciphey">
-
-<br>
-Fully automated decryption/decoding/cracking tool using natural language processing & artificial intelligence, along with some common sense.
-</p>
-<hr>
-
-## [Installation Guide](https://github.com/Ciphey/Ciphey/wiki/Installation)
-
-| <p align="center"><a href="https://pypi.org/project/ciphey">🐍 Python | <p align="center"><a href="https://hub.docker.com/r/remnux/ciphey">🐋 Docker (Universal) | <p align="center"><a href="https://ports.macports.org/port/ciphey/summary">🍎 MacPorts (macOS) | <p align="center"><a href="https://formulae.brew.sh/formula/ciphey">🍺 Homebrew (macOS/Linux) |
-| --------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |--------------------------------------------------------------------------------- |
-| <p align="center"><img src="https://github.com/Ciphey/Ciphey/raw/master/Pictures_for_README/python.png" /></p>    | <p align="center"><img src="https://github.com/Ciphey/Ciphey/raw/master/Pictures_for_README/docker.png" /></p> | <p align="center"><img src="https://github.com/Ciphey/Ciphey/raw/master/Pictures_for_README/macports.png" /></p> | <p align="center"><img src="https://github.com/Ciphey/Ciphey/raw/master/Pictures_for_README/homebrew.png" /></p> |
-| `python3 -m pip install ciphey --upgrade` | `docker run -it --rm remnux/ciphey` | `sudo port install ciphey` | `brew install ciphey` |
-
-| Linux                                                                                                                   | Mac OS                                                                                                                     | Windows                                                                                                                   |
-| ----------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/ciphey/ciphey/Python%20application?label=Linux) | ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/ciphey/ciphey/Python%20application?label=Mac%20OS) | ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/ciphey/ciphey/Python%20application?label=Windows) |
-
-<hr>
-
-# 🤔 What is this?
-
-Input encrypted text, get the decrypted text back.
-
-> "What type of encryption?"
-
-That's the point. You don't know, you just know it's possibly encrypted. Ciphey will figure it out for you.
-
-Ciphey can solve most things in 3 seconds or less.
-
-<p align="center" href="https://asciinema.org/a/336257">
-  <img src="https://github.com/Ciphey/Ciphey/raw/master/Pictures_for_README/index.gif" alt="Ciphey demo">
+  <a href="https://crates.io/crates/ciphey"><img alt="crates.io" src="https://img.shields.io/crates/v/ciphey"></a>
+  <a href="https://docs.rs/ciphey"><img alt="docs.rs" src="https://img.shields.io/docsrs/ciphey"></a>
+  <a href="LICENSE"><img alt="MIT license" src="https://img.shields.io/badge/license-MIT-blue"></a>
 </p>
 
-Ciphey aims to be a tool to automate a lot of decryptions & decodings such as multiple base encodings, classical ciphers, hashes or more advanced cryptography.
+<p align="center">
+  <a href="#install">Install</a> ·
+  <a href="#quick-start">Quick start</a> ·
+  <a href="#features">Features</a> ·
+  <a href="#use-it-as-a-library">Library</a> ·
+  <a href="#mcp-server-ai-assistants">MCP</a> ·
+  <a href="#documentation">Docs</a> ·
+  <a href="http://discord.skerritt.blog">Discord</a>
+  <br><sub>▶ <a href="https://cdn.jsdelivr.net/gh/bee-san/Ciphey@d41d19946234477346fede14dadf8c351cc469e6/media/tui-video/out/ciphey-tui-promo.mp4">Watch the one-minute tour</a> (MP4, 61 s)</sub>
+</p>
 
-If you don't know much about cryptography, or you want to quickly check the ciphertext before working on it yourself, Ciphey is for you.
+## Install
 
-**The technical part.** Ciphey uses a custom built artificial intelligence module (_AuSearch_) with a _Cipher Detection Interface_ to approximate what something is encrypted with. And then a custom-built, customisable natural language processing _Language Checker Interface_, which can detect when the given text becomes plaintext.
+```bash
+cargo install ciphey
+```
 
-No neural networks or bloated AI here. We only use what is fast and minimal.
+Prebuilt binaries for Linux (x86_64), macOS (Intel and Apple silicon) and Windows (x86_64) are on the [releases page](https://github.com/bee-san/Ciphey/releases/latest), each with a `.sha256` checksum.
 
-And that's just the tip of the iceberg. For the full technical explanation, check out our [documentation](https://github.com/Ciphey/Ciphey/wiki).
+To build from source, you need a Rust toolchain:
 
-# ✨ Features
+```bash
+git clone https://github.com/bee-san/Ciphey
+cd Ciphey
+cargo build --release    # the binary is target/release/ciphey
+```
 
-- **50+ encryptions/encodings supported** such as binary, Morse code and Base64. Classical ciphers like the Caesar cipher, Affine cipher and the Vigenere cipher. Along with modern encryption like repeating-key XOR and more. **[For the full list, click here](https://github.com/Ciphey/Ciphey/wiki/Supported-Ciphers)**
-- **Custom Built Artificial Intelligence with Augmented Search (AuSearch) for answering the question "what encryption was used?"** Resulting in decryptions taking less than 3 seconds.
-- **Custom built natural language processing module** Ciphey can determine whether something is plaintext or not. Whether that plaintext is JSON, a CTF flag, or English, Ciphey can get it in a couple of milliseconds.
-- **Multi Language Support** at present, only German & English (with AU, UK, CAN, USA variants).
-- **Supports encryptions and hashes** Which the alternatives such as CyberChef Magic do not.
-- **[C++ core](https://github.com/Ciphey/CipheyCore)** Blazingly fast.
+Or skip installing: join the [Discord server](http://discord.skerritt.blog), go to `#bots` and type `$ciphey <your text>` (`$help` lists the commands).
 
-# 🔭 Ciphey vs CyberChef
+## Quick start
 
-## 🔁 Base64 Encoded 42 times
+```console
+$ ciphey -t 'aGVsbG8gdGhlcmUgZ2VuZXJhbA=='
+🕵️ I think the plaintext is Words.
+Possible plaintext: 'hello there general' (y/N):
+y
 
-<table>
-  <tr>
-  <th>Name</th>
-    <th>⚡ Ciphey ⚡ </th>
-    <th>🐢 CyberChef 🐢</th>
-  </tr>
-  <tr>
-  <th>Gif</th>
-    <td><img src="https://github.com/Ciphey/Ciphey/raw/master/Pictures_for_README/ciphey_gooder_cyberchef.gif" alt="The guy she tells you not to worry about"></td>
-    <td><img src="https://github.com/Ciphey/Ciphey/raw/master/Pictures_for_README/not_dying.gif" alt="You"></td>
-  </tr>
-  <tr>
-  <th>Time</th>
-    <td>2 seconds</td>
-    <td>6 seconds</td>
-  </tr>
-    <tr>
-  <th>Setup</th>
-    <td><ul><li>Run ciphey on the file</li></ul></td>
-    <td><ul><li>Set the regex param to "{"</li><li>You need to know how many times to recurse</li><li>You need to know it's Base64 all the way down</li><li>You need to load CyberChef (it's a bloated JS app)</li><li>Know enough about CyberChef to create this pipeline</li><li>Invert the match</li></ul></td>
-  </tr>
-</table>
+🥳 ciphey has decoded 64 times.
 
-<sub><b>Note</b> The gifs may load at different times, so one may appear significantly faster than another.</sub><br>
-<sub><b>A note on magic </b>CyberChef's most similar feature to Ciphey is Magic. Magic fails instantly on this input and crashes. The only way we could force CyberChef to compete was to manually define it.</sub>
+The plaintext is:
+hello there general
+the decoder used is Base64
+```
 
-We also tested CyberChef and Ciphey with a **6gb file**. Ciphey cracked it in **5 minutes and 54 seconds**. CyberChef crashed before it even started.
+The first time you run it, a short setup asks for a colour theme, how you want results shown and whether to use a wordlist, and saves your answers to `~/.ciphey/config.toml`.
 
-## 📊 Ciphey vs Katana vs CyberChef Magic
+```bash
+ciphey -t 'NTA3NjYzNzU3MjZjMjA3NjY2MjA2OTcyNjU2YzIwNzM2ZTY2Njc='   # ROT13 → hex → Base64, nothing else needed
+ciphey -f secret.txt                    # read the input from a file
+ciphey -d -t '...'                      # no y/N prompt: take the first plaintext found (handy in scripts)
+ciphey -c 15 -t '...'                   # keep searching for up to 15 seconds (the default is 5)
+ciphey -r 'flag\{' -t '...'             # only accept plaintext that matches a regex (a crib)
+ciphey --wordlist words.txt -t '...'    # also accept any exact match from a wordlist
+```
 
-| **Name**                                   | ⚡ Ciphey ⚡ | 🗡️ Katana 🗡️ | 🐢 CyberChef Magic 🐢 |
-| ------------------------------------------ | ------------ | ------------ | --------------------- |
-| Advanced Language Checker                  | ✅           | ❌           | ✅                    |
-| Supports Encryptions                       | ✅           | ✅           | ❌                    |
-| Releases named after Dystopian themes 🌃   | ✅           | ❌           | ❌                    |
-| Supports hashes                            | ✅           | ✅           | ❌                    |
-| Easy to set up                             | ✅           | ❌           | ✅                    |
-| Can guess what something is encrypted with | ✅           | ❌           | ❌                    |
-| Created for hackers by hackers             | ✅           | ✅           | ❌                    |
+`ciphey --help` lists every option.
 
-# 🎬 Getting Started
+## Features
 
-If you're having trouble with installing Ciphey, [read this.](https://github.com/Ciphey/Ciphey/wiki/Common-Issues-&-Their-Solutions)
+### ⚡ Fast
 
-## ‼️ Important Links (Docs, Installation guide, Discord Support)
+<a href="https://cdn.jsdelivr.net/gh/bee-san/Ciphey@d41d19946234477346fede14dadf8c351cc469e6/media/tui-video/out/fast.mp4"><img src="https://cdn.jsdelivr.net/gh/bee-san/Ciphey@d41d19946234477346fede14dadf8c351cc469e6/media/tui-video/out/fast.gif" alt="A terminal runs time ciphey -d on a Base64 string. Ciphey prints 'Ciphey is very fast' and the path Base64 → Hexadecimal → caesar, and bash reports real 0m0.157s. A chart then compares Ciphey's 0.19 s (the median of 10 runs) with no answer after 60 s for Python Ciphey 5.14.0 on the same input."></a>
 
-| Installation Guide                                                          | Documentation                                             | Discord                                     | Docker Image (from REMnux)                                                                          |
-| --------------------------------------------------------------------------- | --------------------------------------------------------- | ------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| 📖 [Installation Guide](https://github.com/Ciphey/Ciphey/wiki/Installation) | 📚 [Documentation](https://github.com/Ciphey/Ciphey/wiki) | 🦜 [Discord](https://discord.gg/zYTM3rZM4T) | 🐋 [Docker Documentation](https://docs.remnux.org/run-tools-in-containers/remnux-containers#ciphey) |
+<sub>▶ <a href="https://cdn.jsdelivr.net/gh/bee-san/Ciphey@d41d19946234477346fede14dadf8c351cc469e6/media/tui-video/out/fast.mp4">Watch the clip</a> (16 s)</sub>
 
-## 🏃‍♀️Running Ciphey
+Three layers (ROT13, then hex, then Base64) come off in 0.16 s, measured by bash's `time` in a real recording. Here is the same comparison for more inputs, against Python Ciphey 5.14, the version Ciphey replaces:
 
-There are 3 ways to run Ciphey.
+| Input | Ciphey | Python Ciphey 5.14 |
+| --- | --- | --- |
+| Base64 | 0.11 s | 0.92 s |
+| Hex → Base64 | 0.14 s | 1.02 s |
+| ROT13 → Hex → Base64 | 0.19 s | no answer within 60 s |
+| URL → Base64 → Hex | 0.24 s | 1.15 s |
+| Base64 ×4 | 0.41 s | 0.78 s |
+| Hex → Base32 → Base64 → Hex | 0.54 s | 0.72 s, wrong answer |
+| ROT13 → Hex → Base64 → Base32 | 1.15 s | no answer within 60 s |
 
-1. File Input `ciphey -f encrypted.txt`
-2. Unqualified input `ciphey -- "Encrypted input"`
-3. Normal way `ciphey -t "Encrypted input"`
+<sub>Wall-clock median of 10 runs per input (Python Ciphey: 3) on a shared 16-CPU Linux machine, Ciphey at 47bd16d6 with the y/N prompt off and a fresh <code>$HOME</code> per run so its cache can't help. Every run was capped at 60 s. The script and raw numbers are in <a href="https://github.com/bee-san/Ciphey/tree/media/readme-videos/media/tui-video/bench"><code>media/tui-video/bench</code></a> on the <code>media/readme-videos</code> branch.</sub>
 
-![Gif showing 3 ways to run Ciphey](https://github.com/Ciphey/Ciphey/raw/master/Pictures_for_README/3ways.gif)
+Where both get the right answer, Ciphey is 1.9 to 8.6 times faster. Where does the speed come from?
 
-To get rid of the progress bars, probability table, and all the noise use the quiet mode.
+- It's Rust.
+- An A* search tries the most promising chains of decoders first.
+- Every decoder runs in parallel with [Rayon](https://github.com/rayon-rs/rayon), on up to 10 candidate texts at a time.
+- Answers are cached in `~/.ciphey/database.sqlite`, so the same input a second time comes back in milliseconds.
 
-`ciphey -t "encrypted text here" -q`
+### 🧅 Layer after layer, no key needed
 
-For a full list of arguments, run `ciphey --help`.
+Ciphey doesn't need to be told what it's looking at. It searches chains of decoders (Base64 inside hex inside ROT13, four layers of Base64, and so on) and stops at the first candidate that looks like plaintext. By default it shows you that candidate and asks before accepting it (`-d` turns this off). The clip at the top of this page shows a four-layer decode.
 
-### ⚗️ Importing Ciphey
+There is also a timer: if Ciphey hasn't found anything after 5 seconds, it stops and says so (`-c` changes the limit).
 
-You can import Ciphey\'s main and use it in your own programs and code. `from Ciphey.__main__ import main`
+It knows 24 decoders and crackers:
 
-# 🎪 Contributors
+| Kind | Decoders |
+| --- | --- |
+| Base encodings | Base64 (standard and URL-safe), Base32, Base58 (Bitcoin, Flickr, Monero, Ripple), Base91, Base65536, Z85 |
+| Other encodings | Hexadecimal, binary, URL (percent-encoding), Morse code, Braille, A1Z26, Citrix CTX1 |
+| Ciphers | Caesar (including ROT13), ROT47, Atbash, Vigenère (it works out the key itself), rail fence, reversed text |
+| Oddities | Brainfuck (it runs the program), Morse or binary written with other symbols |
 
-Ciphey was invented by [Bee](https://github.com/bee-san) in 2008, and revived in 2019. Ciphey wouldn't be where it was today without [Cyclic3](https://github.com/Cyclic3) - president of UoL's Cyber Security Society.
+More are on the way: [#1030](https://github.com/bee-san/Ciphey/issues/1030) tracks 109 decoders that aren't in yet.
 
-Ciphey was revived & recreated by the [Cyber Security Society](https://www.cybersoc.cf/) for use in CTFs. If you're ever in Liverpool, consider giving a talk or sponsoring our events. Email us at `cybersecurity@society.liverpoolguild.org` to find out more 🤠
+### 🕵️ Knows what it found
 
-**Major Credit** to George H for working out how we could use proper algorithms to speed up the search process.
-**Special thanks** to [varghalladesign](https://www.facebook.com/varghalladesign) for designing the logo. Check out their other design work!
+<a href="https://cdn.jsdelivr.net/gh/bee-san/Ciphey@d41d19946234477346fede14dadf8c351cc469e6/media/tui-video/out/lemmeknow.mp4"><img src="https://cdn.jsdelivr.net/gh/bee-san/Ciphey@d41d19946234477346fede14dadf8c351cc469e6/media/tui-video/out/lemmeknow.gif" alt="Three Ciphey runs. Base64 decodes to 'mount -o username=bee,password=hunter2', identified as a Mount Command With Clear Credentials. Base64 decodes to an otpauth:// link, identified as a Time-Based One-Time Password (TOTP) URI. Hex decodes to 192.168.0.1, identified as an Internet Protocol (IP) Address Version 4."></a>
 
-## 🐕‍🦺 [Contributing](https://github.com/Ciphey/Ciphey/wiki/Contributing)
+<sub>▶ <a href="https://cdn.jsdelivr.net/gh/bee-san/Ciphey@d41d19946234477346fede14dadf8c351cc469e6/media/tui-video/out/lemmeknow.mp4">Watch the clip</a> (21 s)</sub>
 
-Don't be afraid to contribute! We have many, many things you can do to help out. Each of them labelled and easily explained with examples. If you're trying to contribute but stuck, tag @bee-san ✨
+Every candidate plaintext also goes through [LemmeKnow](https://github.com/swanandx/lemmeknow), the Rust port of [pyWhat](https://github.com/bee-san/pyWhat), which recognises more than 120 formats. So Ciphey doesn't just decode the string, it tells you what it is: a password in a `mount` or `sshpass` command, a TOTP secret, a GitHub token or Stripe key, an IP or MAC address, an email address or URL, a crypto wallet, an AWS ARN, JSON or a CTF flag in any format (`flag{…}`, `picoCTF{…}`, `DUCTF{…}`). LemmeKnow patterns that only check which characters a string has and how long it is (card and phone numbers, for example) are ignored: decoder junk matches them all the time.
 
-Alternatively, join the Discord group and send a message there (link in [contrib file](https://github.com/Ciphey/Ciphey/wiki/Contributing)) or at the top of this README as a badge.
+```console
+$ ciphey -t '3139322e3136382e302e31'
+🕵️ I think the plaintext is Internet Protocol (IP) Address Version 4.
+Possible plaintext: '192.168.0.1' (y/N):
+```
 
-Please read the [contributing file](https://github.com/Ciphey/Ciphey/wiki/Contributing) for exact details on how to contribute ✨
+### 🎯 Crib and regex mode
 
-By doing so, you'll get your name added to the README below and get to be apart of an ever-growing project!
-[![Stargazers over time](https://starchart.cc/Ciphey/Ciphey.svg)](https://starchart.cc/Ciphey/Ciphey)
+<a href="https://cdn.jsdelivr.net/gh/bee-san/Ciphey@d41d19946234477346fede14dadf8c351cc469e6/media/tui-video/out/crib.mp4"><img src="https://cdn.jsdelivr.net/gh/bee-san/Ciphey@d41d19946234477346fede14dadf8c351cc469e6/media/tui-video/out/crib.gif" alt="A terminal runs ciphey -t on a Base64 string with -r 'picoCTF\{'. Ciphey reports 'Regex matched: picoCTF\{', asks about 'picoCTF{b4s3_64_1s_fun}', and prints it as the plaintext, decoded with Base64."></a>
 
-## 💰 Financial Contributors
+<sub>▶ <a href="https://cdn.jsdelivr.net/gh/bee-san/Ciphey@d41d19946234477346fede14dadf8c351cc469e6/media/tui-video/out/crib.mp4">Watch the clip</a> (14.5 s)</sub>
 
-The contributions will be used to fund not only the future of Ciphey and its authors, but also Cyber Security Society at the University of Liverpool.
+If you know part of the answer (the flag format, a word that has to be in there, how it starts), give it to Ciphey as a regex with `-r`. The other checkers switch off and only text that matches is accepted. This finds plaintext the other checkers would pass over, or stops on the one you want when several candidates look like plaintext: with `-r 'picoCTF\{'`, only a `picoCTF{…}` flag ends the search.
 
-GitHub doesn't support "sponsor this project and we'll evenly distribute the money", so pick a link and we'll sort it out on our end 🥰
+`--wordlist words.txt` works the same way for exact matches: a candidate that is a line in the file counts as plaintext.
 
-## ✨ Contributors
+### 🎨 Made for your terminal
 
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+The first-run setup lets you pick a colour theme (Capptucin, Darcula, GirlyPop, the default, or your own RGB values) and choose between being asked about each plaintext or getting a list of candidates at the end. You can see it [in the tour](https://cdn.jsdelivr.net/gh/bee-san/Ciphey@d41d19946234477346fede14dadf8c351cc469e6/media/tui-video/out/ciphey-tui-promo.mp4) from 0:32. Everything is saved to `~/.ciphey/config.toml`, which you can edit later.
 
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tr>
-    <td align="center"><a href="https://github.com/Cyclic3"><img src="https://avatars1.githubusercontent.com/u/15613874?v=4?s=100" width="100px;" alt=""/><br /><sub><b>cyclic3</b></sub></a><br /><a href="#design-cyclic3" title="Design">🎨</a> <a href="#maintenance-cyclic3" title="Maintenance">🚧</a> <a href="https://github.com/Ciphey/Ciphey/commits?author=cyclic3" title="Code">💻</a> <a href="#ideas-cyclic3" title="Ideas, Planning, & Feedback">🤔</a></td>
-    <td align="center"><a href="https://skerritt.blog"><img src="https://avatars3.githubusercontent.com/u/10378052?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Brandon</b></sub></a><br /><a href="#design-brandonskerritt" title="Design">🎨</a> <a href="#maintenance-brandonskerritt" title="Maintenance">🚧</a> <a href="https://github.com/Ciphey/Ciphey/commits?author=brandonskerritt" title="Code">💻</a> <a href="#ideas-brandonskerritt" title="Ideas, Planning, & Feedback">🤔</a></td>
-    <td align="center"><a href="https://github.com/michalani"><img src="https://avatars0.githubusercontent.com/u/27767884?v=4?s=100" width="100px;" alt=""/><br /><sub><b>michalani</b></sub></a><br /><a href="https://github.com/Ciphey/Ciphey/commits?author=michalani" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/ashb07"><img src="https://avatars2.githubusercontent.com/u/24845568?v=4?s=100" width="100px;" alt=""/><br /><sub><b>ashb07</b></sub></a><br /><a href="https://github.com/Ciphey/Ciphey/commits?author=ashb07" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/TheAlcanian"><img src="https://avatars3.githubusercontent.com/u/22127191?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Shardion</b></sub></a><br /><a href="https://github.com/Ciphey/Ciphey/issues?q=author%3ATheAlcanian" title="Bug reports">🐛</a></td>
-    <td align="center"><a href="https://github.com/Bryzizzle"><img src="https://avatars0.githubusercontent.com/u/57810197?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Bryan</b></sub></a><br /><a href="#translation-Bryzizzle" title="Translation">🌍</a> <a href="https://github.com/Ciphey/Ciphey/commits?author=Bryzizzle" title="Documentation">📖</a></td>
-    <td align="center"><a href="https://lukasgabriel.net"><img src="https://avatars0.githubusercontent.com/u/52338810?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Lukas Gabriel</b></sub></a><br /><a href="https://github.com/Ciphey/Ciphey/commits?author=lukasgabriel" title="Code">💻</a> <a href="https://github.com/Ciphey/Ciphey/issues?q=author%3Alukasgabriel" title="Bug reports">🐛</a> <a href="#translation-lukasgabriel" title="Translation">🌍</a> <a href="#ideas-lukasgabriel" title="Ideas, Planning, & Feedback">🤔</a></td>
-  </tr>
-  <tr>
-    <td align="center"><a href="https://github.com/DarshanBhoi"><img src="https://avatars2.githubusercontent.com/u/70128281?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Darshan</b></sub></a><br /><a href="https://github.com/Ciphey/Ciphey/issues?q=author%3ADarshanBhoi" title="Bug reports">🐛</a></td>
-    <td align="center"><a href="https://github.com/SkeletalDemise"><img src="https://avatars1.githubusercontent.com/u/29117662?v=4?s=100" width="100px;" alt=""/><br /><sub><b>SkeletalDemise</b></sub></a><br /><a href="https://github.com/Ciphey/Ciphey/commits?author=SkeletalDemise" title="Code">💻</a></td>
-    <td align="center"><a href="https://www.patreon.com/cclauss"><img src="https://avatars3.githubusercontent.com/u/3709715?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Christian Clauss</b></sub></a><br /><a href="https://github.com/Ciphey/Ciphey/commits?author=cclauss" title="Code">💻</a> <a href="https://github.com/Ciphey/Ciphey/issues?q=author%3Acclauss" title="Bug reports">🐛</a></td>
-    <td align="center"><a href="http://machinexa.xss.ht"><img src="https://avatars1.githubusercontent.com/u/60662297?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Machinexa2</b></sub></a><br /><a href="#content-machinexa2" title="Content">🖋</a></td>
-    <td align="center"><a href="https://github.com/anantverma275"><img src="https://avatars1.githubusercontent.com/u/18184503?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Anant Verma</b></sub></a><br /><a href="https://github.com/Ciphey/Ciphey/commits?author=anantverma275" title="Code">💻</a> <a href="https://github.com/Ciphey/Ciphey/issues?q=author%3Aanantverma275" title="Bug reports">🐛</a></td>
-    <td align="center"><a href="https://github.com/XVXTOR"><img src="https://avatars1.githubusercontent.com/u/40268197?v=4?s=100" width="100px;" alt=""/><br /><sub><b>XVXTOR</b></sub></a><br /><a href="https://github.com/Ciphey/Ciphey/commits?author=XVXTOR" title="Documentation">📖</a></td>
-    <td align="center"><a href="https://github.com/Itamikame"><img src="https://avatars2.githubusercontent.com/u/59034423?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Itamikame</b></sub></a><br /><a href="https://github.com/Ciphey/Ciphey/commits?author=Itamikame" title="Code">💻</a></td>
-  </tr>
-  <tr>
-    <td align="center"><a href="https://github.com/MikeMerz"><img src="https://avatars3.githubusercontent.com/u/50526795?v=4?s=100" width="100px;" alt=""/><br /><sub><b>MikeMerz</b></sub></a><br /><a href="https://github.com/Ciphey/Ciphey/commits?author=MikeMerz" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/jacobggman"><img src="https://avatars2.githubusercontent.com/u/30216976?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jacob Galam</b></sub></a><br /><a href="https://github.com/Ciphey/Ciphey/commits?author=jacobggman" title="Code">💻</a> <a href="https://github.com/Ciphey/Ciphey/issues?q=author%3Ajacobggman" title="Bug reports">🐛</a></td>
-    <td align="center"><a href="https://tuxthexplorer.github.io/"><img src="https://avatars1.githubusercontent.com/u/37508897?v=4?s=100" width="100px;" alt=""/><br /><sub><b>TuxTheXplorer</b></sub></a><br /><a href="#translation-TuxTheXplorer" title="Translation">🌍</a></td>
-    <td align="center"><a href="https://github.com/Itamai"><img src="https://avatars3.githubusercontent.com/u/53093696?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Itamai</b></sub></a><br /><a href="https://github.com/Ciphey/Ciphey/commits?author=Itamai" title="Code">💻</a> <a href="https://github.com/Ciphey/Ciphey/issues?q=author%3AItamai" title="Bug reports">🐛</a></td>
-    <td align="center"><a href="https://github.com/Termack"><img src="https://avatars2.githubusercontent.com/u/26333901?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Filipe</b></sub></a><br /><a href="#translation-Termack" title="Translation">🌍</a></td>
-    <td align="center"><a href="https://github.com/malathit"><img src="https://avatars0.githubusercontent.com/u/2684148?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Malathi</b></sub></a><br /><a href="https://github.com/Ciphey/Ciphey/commits?author=malathit" title="Code">💻</a></td>
-    <td align="center"><a href="https://hexchaos.xyz/"><img src="https://avatars1.githubusercontent.com/u/8947820?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jack</b></sub></a><br /><a href="#translation-HexChaos" title="Translation">🌍</a></td>
-  </tr>
-  <tr>
-    <td align="center"><a href="https://github.com/yafkari"><img src="https://avatars3.githubusercontent.com/u/41365655?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Younes</b></sub></a><br /><a href="#translation-yafkari" title="Translation">🌍</a></td>
-    <td align="center"><a href="https://gitlab.com/Marnick39"><img src="https://avatars2.githubusercontent.com/u/17315511?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Marnick Vandecauter</b></sub></a><br /><a href="#translation-Marnick39" title="Translation">🌍</a></td>
-    <td align="center"><a href="https://github.com/mav8557"><img src="https://avatars0.githubusercontent.com/u/47306745?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Michael V</b></sub></a><br /><a href="https://github.com/Ciphey/Ciphey/commits?author=mav8557" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/chuinzer"><img src="https://avatars2.githubusercontent.com/u/64257785?v=4?s=100" width="100px;" alt=""/><br /><sub><b>chuinzer</b></sub></a><br /><a href="#translation-chuinzer" title="Translation">🌍</a></td>
-    <td align="center"><a href="https://github.com/blackcat-917"><img src="https://avatars1.githubusercontent.com/u/53786619?v=4?s=100" width="100px;" alt=""/><br /><sub><b>blackcat-917</b></sub></a><br /><a href="#translation-blackcat-917" title="Translation">🌍</a> <a href="https://github.com/Ciphey/Ciphey/commits?author=blackcat-917" title="Documentation">📖</a></td>
-    <td align="center"><a href="https://github.com/Ozzyz"><img src="https://avatars3.githubusercontent.com/u/6113447?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Åsmund Brekke</b></sub></a><br /><a href="https://github.com/Ciphey/Ciphey/commits?author=Ozzyz" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/sashreek1"><img src="https://avatars1.githubusercontent.com/u/45600974?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Sashreek Shankar</b></sub></a><br /><a href="https://github.com/Ciphey/Ciphey/commits?author=sashreek1" title="Code">💻</a></td>
-  </tr>
-  <tr>
-    <td align="center"><a href="https://github.com/cryptobadger"><img src="https://avatars2.githubusercontent.com/u/26308101?v=4?s=100" width="100px;" alt=""/><br /><sub><b>cryptobadger</b></sub></a><br /><a href="https://github.com/Ciphey/Ciphey/commits?author=cryptobadger" title="Code">💻</a> <a href="https://github.com/Ciphey/Ciphey/issues?q=author%3Acryptobadger" title="Bug reports">🐛</a></td>
-    <td align="center"><a href="https://github.com/e1fy"><img src="https://avatars3.githubusercontent.com/u/61194758?v=4?s=100" width="100px;" alt=""/><br /><sub><b>elf</b></sub></a><br /><a href="https://github.com/Ciphey/Ciphey/commits?author=e1fy" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/rogercyyu"><img src="https://avatars0.githubusercontent.com/u/45835736?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Roger Yu</b></sub></a><br /><a href="https://github.com/Ciphey/Ciphey/commits?author=rogercyyu" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/JesseEmond"><img src="https://avatars.githubusercontent.com/u/1843555?v=4?s=100" width="100px;" alt=""/><br /><sub><b>dysleixa</b></sub></a><br /><a href="https://github.com/Ciphey/Ciphey/commits?author=JesseEmond" title="Code">💻</a></td>
-    <td align="center"><a href="http://mohzulfikar.me"><img src="https://avatars.githubusercontent.com/u/48849323?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Mohammad Zulfikar</b></sub></a><br /><a href="https://github.com/Ciphey/Ciphey/commits?author=mohzulfikar" title="Documentation">📖</a></td>
-    <td align="center"><a href="https://github.com/AABur"><img src="https://avatars.githubusercontent.com/u/41373199?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Alexander Burchenko</b></sub></a><br /><a href="#translation-AABur" title="Translation">🌍</a></td>
-  </tr>
-</table>
+### 📚 Library first
 
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
+The `ciphey` binary is a thin wrapper around the `ciphey` crate. The [Discord bot](https://github.com/bee-san/discord-bot) uses it as well, and so can your code.
 
-<!-- ALL-CONTRIBUTORS-LIST:END -->
+## Use it as a library
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+`perform_cracking` runs the whole search, as the `ciphey` binary does:
+
+```rust
+use ciphey::config::Config;
+use ciphey::{perform_cracking, CipheyError};
+
+fn main() {
+    let mut config = Config::default();
+    config.timeout = 5; // seconds
+    config.human_checker_on = false; // never prompt on stdin
+    config.api_mode = true; // don't print progress to stdout
+    // config.regex = Some(r"flag\{".to_string()); // only accept plaintext matching a crib
+
+    match perform_cracking("aGVsbG8gdGhlcmUgZ2VuZXJhbA==", config) {
+        Ok(Some(result)) => {
+            let path: Vec<&str> = result.path.iter().map(|step| step.decoder).collect();
+            println!("{} (via {})", result.text[0], path.join(" → "));
+        }
+        Ok(None) => println!("no plaintext found"),
+        Err(CipheyError::Timeout { secs }) => println!("gave up after {secs}s"),
+        Err(e) => eprintln!("error: {e}"),
+    }
+}
+```
+
+This prints `hello there general (via Base64)`.
+
+### One decoder
+
+If you know what you're looking at, call that decoder. Each one is a function in `ciphey::decoders`: encodings come back decoded, ciphers are cracked, and the ones that take a key can decrypt with yours.
+
+```rust
+use ciphey::decoders;
+
+let decoded = decoders::base64("aGVsbG8gd29ybGQ=");
+assert_eq!(decoded.candidates[0].text, "hello world");
+
+// No key: Ciphey tries every shift and marks the one its checks accept
+let cracked = decoders::caesar("Uryyb jbeyq");
+let plaintext = cracked.plaintext().expect("a shift reads as English");
+assert_eq!(plaintext.text, "Hello world");
+assert_eq!(plaintext.key.as_deref(), Some("13"));
+
+// With the key
+let decrypted = decoders::vigenere_with_key("Rijvs uyvjn", "KEY")?;
+assert_eq!(decrypted.candidates[0].text, "Hello world");
+```
+
+To choose the decoder at run time, `decode_with` takes its name or an alias, and `list_decoders` lists them all with their aliases, tags and the key they take:
+
+```rust
+use ciphey::{decode_with, list_decoders, DecodeOptions};
+
+let cracked = decode_with("rot13", "Uryyb jbeyq", &DecodeOptions::default())?;
+let decrypted = decode_with("affine", "IHHWVC SWFRCP", &DecodeOptions::with_key("a=5, b=8"))?;
+
+for decoder in list_decoders() {
+    println!("{}: {}", decoder.name, decoder.key_format.unwrap_or("no key"));
+}
+```
+
+Nothing is filtered out: you get what the decoder hands on to the search. The candidate Ciphey's plaintext checks accept comes first and carries a `detection`; if they accept none, you get the decodings unmarked, for you to judge (all 25 Caesar shifts, say, though crackers with many keys hand on only their best few).
+
+### Is it plaintext?
+
+`detect_plaintext` runs the checks the search uses (a regex crib, a wordlist, LemmeKnow, JSON, common passwords, English and code) and says which one accepted the text and what it took it for:
+
+```rust
+use ciphey::detection::{detect_plaintext, CheckerKind, DetectOptions, Sensitivity};
+
+let found = detect_plaintext("192.168.0.1", &DetectOptions::default()).unwrap();
+assert_eq!(found.checker, CheckerKind::LemmeKnow);
+assert_eq!(found.description, "Internet Protocol (IP) Address Version 4");
+assert_eq!(found.confidence, Some(0.7)); // the format's rarity in pyWhat
+
+// Pick the checkers and how strict the English checker is, or give a crib
+let english_only = DetectOptions::new()
+    .checkers([CheckerKind::English])
+    .sensitivity(Sensitivity::Low);
+let crib = DetectOptions::new().regex(r"^flag\{")?;
+```
+
+`cargo run --example decode` tours all of this, and `cargo run --example decode -- list` lists the decoders.
+
+- `perform_cracking` returns `Result<Option<DecoderResult>, CipheyError>` on `master` ([#915](https://github.com/bee-san/Ciphey/pull/915)), and the single-decoder and detection functions are only on `master` so far. The last release on crates.io (0.12.0) still returns `Option<DecoderResult>`, so until the next release use the git version: `ciphey = { git = "https://github.com/bee-san/Ciphey" }`.
+- The config is global to the process. The first call's `Config` is used for every later call, and the single decoders follow it too (a `regex` crib, a wordlist). They never prompt.
+- The API is documented on [docs.rs](https://docs.rs/ciphey).
+
+## MCP server (AI assistants)
+
+<a href="https://cdn.jsdelivr.net/gh/bee-san/Ciphey@5aa9760b2912611755d037c01b9d2ed14fd3bf81/media/mcp-video/out/ciphey-mcp.mp4"><img src="https://cdn.jsdelivr.net/gh/bee-san/Ciphey@5aa9760b2912611755d037c01b9d2ed14fd3bf81/media/mcp-video/out/ciphey-mcp.gif" alt="An AI assistant (Kiro CLI) is asked to decode a Base64 string from a CTF challenge. It calls ciphey's decode tool over MCP, which returns the plaintext flag{ciphey_speaks_mcp} and the decoders it used, Base64 → Hexadecimal → caesar with key 13. The assistant then answers with the flag. Click to watch the 30-second video."></a>
+
+<sub>▶ <a href="https://cdn.jsdelivr.net/gh/bee-san/Ciphey@5aa9760b2912611755d037c01b9d2ed14fd3bf81/media/mcp-video/out/ciphey-mcp.mp4">Watch the video</a> (29.5 s). The chat replays a real Kiro CLI session with ciphey-mcp.</sub>
+
+`ciphey-mcp` is a [Model Context Protocol](https://modelcontextprotocol.io) server, so AI assistants such as Claude Desktop and Kiro can decode text with Ciphey. It's behind the `mcp` feature, so the normal `ciphey` build doesn't include it:
+
+```sh
+cargo install ciphey --features mcp --bin ciphey-mcp
+# or, from a clone of this repository:
+cargo install --path . --features mcp --bin ciphey-mcp
+```
+
+The `mcp` feature isn't in a crates.io release yet (0.12.0 is the latest), so until the next one, install from git: `cargo install --git https://github.com/bee-san/Ciphey ciphey --features mcp --bin ciphey-mcp`.
+
+It provides four tools:
+
+- `decode` decodes `text` when you don't know how it was encoded, and returns the `plaintext` and the `path` of decoders used, with keys such as the Caesar shift. Optional arguments: `timeout_secs` (1 to 30, default 10) and `regex`, a crib the plaintext must match, such as `flag\{`.
+- `decode_with` runs one decoder you choose on `text`: give it the `decoder`'s id, name or an alias (`base64`, `rot13`, `vigenere`, `xor_single_byte`, ...). Without a `key` it decodes the text, or cracks the cipher by trying every key; with one it decrypts, for ciphers that take a key (`13`, `LEMON`, `a=5, b=8`, `rails=3, offset=1`). It returns every candidate decoding and whether each passes Ciphey's plaintext check. `regex` works as for `decode`.
+- `detect_plaintext` checks whether `text` already is plaintext, without decoding it, and says which checker accepted it, what it took it for and, for LemmeKnow's formats, how sure it is. Optional arguments: `checkers` (any of `lemmeknow`, `json`, `password`, `english` and `code`, by default all five), `sensitivity` of the English checker (`low`, `medium` or `high`) and a `regex` crib.
+- `list_decoders` lists the encodings and ciphers Ciphey supports, with the ids and aliases `decode_with` takes and the key format of each cipher that takes one.
+
+A `decode` result looks like this. `status` is `decoded`, `not_found` or `timed_out`.
+
+```json
+{
+  "status": "decoded",
+  "plaintext": "hello there general",
+  "path": [{ "decoder": "Base64", "key": null }],
+  "checker": "English Checker",
+  "timeout_secs": 10
+}
+```
+
+`decode_with` with `{"decoder": "rot13", "text": "Uryyb jbeyq"}` gives the result below. `status` is `plaintext_found`, `no_plaintext` (none of the candidates passed the check, so judge them yourself) or `no_candidates` (the text isn't in that decoder's format). A result holds at most 100 candidates and 65,536 characters of their text; `total_candidates` says how many there were, and a candidate cut short has `truncated` set.
+
+```json
+{
+  "decoder": "caesar",
+  "status": "plaintext_found",
+  "candidates": [
+    {
+      "text": "Hello world",
+      "truncated": false,
+      "key": "13",
+      "is_plaintext": true,
+      "detection": { "checker": "english", "description": "Words", "confidence": null }
+    }
+  ],
+  "total_candidates": 1
+}
+```
+
+`detect_plaintext` with `{"text": "192.168.0.1"}` gives:
+
+```json
+{
+  "is_plaintext": true,
+  "detection": {
+    "checker": "lemmeknow",
+    "description": "Internet Protocol (IP) Address Version 4",
+    "confidence": 0.7
+  },
+  "checkers": ["lemmeknow", "json", "password", "english", "code"]
+}
+```
+
+Every call except `list_decoders` runs in its own short-lived process. Input is limited to 65,536 characters (keys too) and regexes to 1,000. A `decode` searches for at most 30 seconds and may use 1 GiB of memory; a `decode_with` call may run for 30 seconds and a `detect_plaintext` call for 10, with 256 MiB each. At most two decodes and four other calls run at once. The server doesn't read or write `~/.ciphey`, so there's no config file and no cache.
+
+### Claude Desktop
+
+Open Settings → Developer → Edit Config, add the server to `claude_desktop_config.json`, then restart Claude Desktop. Use the full path printed by `which ciphey-mcp` (`where ciphey-mcp` on Windows, for example `C:\\Users\\you\\.cargo\\bin\\ciphey-mcp.exe`), because Claude Desktop may not see your shell's `PATH`.
+
+```json
+{
+  "mcpServers": {
+    "ciphey": {
+      "command": "/Users/you/.cargo/bin/ciphey-mcp"
+    }
+  }
+}
+```
+
+### Kiro
+
+```sh
+kiro-cli mcp add --name ciphey --command ciphey-mcp
+```
+
+Or add the entry below to `~/.kiro/settings/mcp.json` (all projects) or `.kiro/settings/mcp.json` (one project).
+
+### Other clients
+
+Most MCP clients take the same `mcpServers` entry: a stdio server started by `ciphey-mcp` with no arguments.
+
+```json
+{
+  "mcpServers": {
+    "ciphey": {
+      "command": "ciphey-mcp",
+      "args": []
+    }
+  }
+}
+```
+
+## Good to know
+
+- Plaintext detection isn't perfect. Text that isn't English is often missed, and a near-miss key (Vigenère in particular) can still produce text that passes for English. [#1031](https://github.com/bee-san/Ciphey/issues/1031) has the evaluation. If you know anything about the answer, a crib (`-r`) or a wordlist helps a lot.
+- A flag whose prefix isn't a flag word (`SEKAI{…}` rather than `…CTF{…}` or `flag{…}`) looks the same as its own Caesar shifts, so under Caesar, ROT13 or Atbash Ciphey can't tell which one is right. Give it the format as a crib: `-r 'SEKAI\{'`.
+- If a cached answer is wrong, delete `~/.ciphey/database.sqlite` to clear the cache.
+- If you're stuck, ask in `#coded-messages` on [Discord](http://discord.skerritt.blog).
+
+## Documentation
+
+- [API docs on docs.rs](https://docs.rs/ciphey)
+- [The `docs/` folder](docs/), including an [overview](docs/ares_overview.md), the [architecture](docs/ares_architecture.md), [how the A* search works](docs/astar.md) and [how plaintext is detected](docs/plaintext-detection.md)
+- [Ciphey 2 documentation](https://broadleaf-angora-7db.notion.site/Ciphey2-32d5eea5d38b40c5b95a9442b4425710) on Notion
+- [Introducing Ares](https://skerritt.blog/introducing-ares/), the blog post about the Rust rewrite (it was called Ares before it became Ciphey)
+
+## Contributing
+
+Bug reports, ideas and pull requests are welcome in [issues](https://github.com/bee-san/Ciphey/issues). A new decoder is a good first contribution: pick one from [#1030](https://github.com/bee-san/Ciphey/issues/1030), and copy the shape of an existing one in [`src/decoders/`](src/decoders/). You can also [sponsor the project](https://github.com/sponsors/bee-san).
+
+<a href="https://github.com/bee-san/Ciphey/graphs/contributors"><img src="https://contrib.rocks/image?repo=bee-san/Ciphey" alt="Avatars of the people who have contributed to Ciphey"></a>
+
+## Credits
+
+- [LemmeKnow](https://github.com/swanandx/lemmeknow) by [@swanandx](https://github.com/swanandx) identifies what Ciphey finds, and [gibberish-or-not](https://github.com/bee-san/gibberish-or-not) decides whether it's English.
+- [Rayon](https://github.com/rayon-rs/rayon) runs the decoders in parallel.
+- Ciphey started as a Python project; Python Ciphey 5.x is still on [PyPI](https://pypi.org/project/ciphey/). Thank you to everyone who worked on it.
+- The videos are made with [HyperFrames](https://hyperframes.heygen.com/) from real terminal recordings. The source, recordings and build script are in [`media/tui-video`](https://github.com/bee-san/Ciphey/tree/media/readme-videos/media/tui-video) on the `media/readme-videos` branch.
+
+## AI use
+
+We use AI for 2 things:
+
+1. The TUI is entirely vibe coded.
+2. I made AI spend hours researching every single CTF challenge out there. It created a list of 15,071 CTFs. It then went through every single CTF and looked for writeups. In those writeups it looked for anything related to encoding / decoding. It then created tests out of those. This enabled us to increase our testing coverage and make sure all CTF encoding / decoding challenges are solvable with this tool.
+
+## License
+
+MIT. See [LICENSE](LICENSE).

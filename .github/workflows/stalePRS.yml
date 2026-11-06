@@ -1,0 +1,25 @@
+name: 'Handle stale PRs'
+# The weekday schedule was removed (GitHub Actions cost audit, 2026-10-13); run by hand from
+# the Actions tab when wanted.
+on:
+    workflow_dispatch:
+
+permissions:
+    contents: read
+
+jobs:
+    stale:
+        runs-on: ubuntu-latest
+        permissions:
+            issues: write
+            pull-requests: write
+        steps:
+            - uses: actions/stale@a20b814fb01b71def3bd6f56e7494d667ddf28da # v4
+              with:
+                  only: pulls
+                  stale-pr-message: "This PR hasn't seen activity in 2 weeks! Should it be merged, closed, or worked on further? If you want to keep it open, post a comment or remove the `stale` label – otherwise this will be closed in another week."
+                  close-pr-message: 'This PR was closed due to 1 month of inactivity. Feel free to reopen it if still relevant.'
+                  days-before-pr-stale: 14
+                  days-before-pr-close: 30
+                  stale-issue-label: stale
+                  stale-pr-label: stale
